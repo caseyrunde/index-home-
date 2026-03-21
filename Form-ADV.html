@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Form ADV | Runde &amp; Co. LLC</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600&family=Jost:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --black:      #000000;
+    --near-black: #111111;
+    --mid:        #555555;
+    --light:      #888888;
+    --rule:       #cccccc;
+    --rule-light: #e8e8e8;
+    --bg:         #ffffff;
+    --bg-off:     #f7f7f7;
+  }
+  body { font-family: 'Jost', sans-serif; background: var(--bg); color: var(--near-black); font-weight: 400; -webkit-font-smoothing: antialiased; }
+  nav { position: sticky; top: 0; z-index: 100; background: #ffffff; border-bottom: 2px solid #0f04aa; display: flex; align-items: center; padding: 0 48px; height: 64px; }
+  .nav-logo { font-family: 'Cormorant Garamond', serif; font-size: 1.575rem; font-weight: 600; color: #000000; text-decoration: none; letter-spacing: 0.08em; margin-right: auto; white-space: nowrap; }
+  .nav-links { list-style: none; display: flex; gap: 20px; align-items: center; }
+  .nav-links a { font-family: 'Cormorant Garamond', serif; font-size: 0.725rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: #000000; text-decoration: none; padding: 4px 0; border-bottom: 2px solid transparent; transition: border-color 0.15s; white-space: nowrap; }
+  .nav-links a:hover { border-bottom-color: #0f04aa; }
+  .nav-links a.active { border-bottom-color: #0f04aa; }
+  .hero { max-width: 1200px; margin: 0 auto; padding: 80px 80px 64px; border-bottom: 2px solid #0f04aa; }
+  .hero-eyebrow { font-family: 'Jost', sans-serif; font-size: 0.65rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--near-black); font-weight: 700; margin-bottom: 24px; display: block; }
+  .hero h1 { font-family: 'Jost', sans-serif; font-size: 3.8rem; font-weight: 400; line-height: 1.05; color: var(--black); max-width: 640px; margin-bottom: 32px; letter-spacing: -0.01em; }
+  .hero h1 strong { font-weight: 600; }
+  .hero-rule { width: 40px; height: 2px; background: #0f04aa; margin-bottom: 28px; }
+  .hero-sub { font-size: 1.0rem; color: var(--mid); max-width: 560px; line-height: 1.8; font-weight: 400; }
+  .page-wrap { max-width: 1200px; margin: 0 auto; padding: 0 80px; }
+  .section-row { padding: 64px 0; display: grid; grid-template-columns: 200px 1fr; gap: 80px; border-bottom: 2px solid #0f04aa; align-items: start; }
+  .section-row:last-child { border-bottom: none; }
+  .col-label { font-family: 'Jost', sans-serif; font-size: 0.65rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--near-black); font-weight: 700; padding-top: 8px; }
+  .content-title { font-family: 'Jost', sans-serif; font-size: 1.8rem; font-weight: 400; color: var(--black); line-height: 1.25; margin-bottom: 28px; letter-spacing: -0.01em; }
+  .content-title strong { font-weight: 600; }
+  .body-text { font-size: 0.92rem; color: var(--mid); line-height: 1.9; font-weight: 400; margin-bottom: 18px; }
+  .strategy-block { border-top: 2px solid #0f04aa; padding-top: 28px; margin-bottom: 48px; }
+  .strategy-block:last-child { margin-bottom: 0; }
+  .strategy-name { font-family: 'Jost', sans-serif; font-size: 1.1rem; font-weight: 600; color: var(--black); margin-bottom: 8px; }
+  .strategy-desc { font-size: 0.875rem; color: var(--mid); line-height: 1.8; font-weight: 400; margin-bottom: 20px; }
+  .perf-note { font-size: 0.72rem; color: var(--light); margin-top: 12px; }
+  .recognition-item { margin-bottom: 48px; padding-bottom: 48px; border-bottom: 1px solid var(--rule-light); }
+  .recognition-item:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+  .recognition-award { font-family: 'Jost', sans-serif; font-size: 0.875rem; font-weight: 600; color: var(--black); margin-bottom: 4px; }
+  .recognition-sub { font-size: 0.8rem; color: var(--mid); margin-bottom: 16px; }
+  .quote-block { border-top: 2px solid #0f04aa; padding: 24px 0 0 0; margin-top: 24px; }
+  .quote-text { font-size: 0.875rem; color: var(--mid); line-height: 1.85; font-weight: 400; margin-bottom: 12px; }
+  .quote-attr { font-size: 0.72rem; color: var(--light); letter-spacing: 0.08em; text-transform: uppercase; }
+  .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: start; }
+  .contact-card { border-top: 2px solid #0f04aa; padding-top: 20px; margin-bottom: 32px; }
+  .contact-card:last-child { margin-bottom: 0; }
+  .contact-name { font-family: 'Jost', sans-serif; font-size: 1.1rem; font-weight: 600; color: var(--black); margin-bottom: 4px; }
+  .contact-title-label { font-size: 0.68rem; color: var(--mid); letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 12px; }
+  .contact-email { font-size: 0.875rem; color: var(--black); text-decoration: none; }
+  .contact-email:hover { text-decoration: underline; }
+  .address-block { font-size: 0.92rem; color: var(--mid); line-height: 1.9; font-weight: 400; margin-bottom: 24px; }
+  .address-block a { color: var(--black); text-decoration: none; }
+  .address-block a:hover { text-decoration: underline; }
+  .map-wrap { border: 1px solid var(--rule); overflow: hidden; }
+  .fee-table { border-top: 2px solid #0f04aa; padding-top: 20px; margin: 24px 0; }
+  .fee-row { display: flex; justify-content: space-between; padding: 10px 0; border-bottom: 1px solid var(--rule-light); font-size: 0.875rem; color: var(--mid); }
+  .fee-row:last-child { border-bottom: none; }
+  .fee-row span:first-child { font-weight: 500; color: var(--black); }
+  .adv-link { color: var(--black); }
+  .adv-link:hover { text-decoration: underline; }
+  footer { background: var(--bg-off); border-top: 1px solid var(--rule); padding: 40px 80px; text-align: center; }
+  .footer-logo { font-family: 'Cormorant Garamond', serif; font-size: 1.181rem; font-weight: 600; color: #000000; margin-bottom: 12px; letter-spacing: 0.08em; }
+  footer p { font-size: 1.08rem; color: var(--mid); line-height: 1.8; font-weight: 400; }
+  footer a { color: var(--mid); text-decoration: none; }
+  footer a:hover { color: var(--black); }
+  .footer-disclaimer { font-size: 0.975rem; color: var(--light); margin-top: 12px; max-width: 700px; margin-left: auto; margin-right: auto; }
+  .pillars-section { background: var(--bg-off); padding: 64px 80px; border-top: 1px solid var(--rule); border-bottom: 2px solid #0f04aa; }
+  .pillars-inner { max-width: 1040px; margin: 0 auto; }
+  .pillars-header { display: grid; grid-template-columns: 200px 1fr; gap: 80px; margin-bottom: 48px; align-items: start; }
+  .pillars-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 24px; }
+  .pillar-card { background: #ffffff; padding: 32px 28px; border-top: 2px solid #0f04aa; }
+  .pillar-card h3 { font-family: 'Jost', sans-serif; font-size: 0.82rem; font-weight: 600; color: var(--black); margin-bottom: 14px; line-height: 1.4; text-transform: uppercase; letter-spacing: 0.04em; }
+  .pillar-card p { font-size: 0.875rem; color: var(--mid); line-height: 1.8; font-weight: 400; }
+  .cta-section { background: var(--near-black); padding: 64px 80px; }
+  .cta-inner { max-width: 1040px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; gap: 40px; }
+  .cta-heading { font-family: 'Jost', sans-serif; font-size: 1.6rem; font-weight: 400; color: #ffffff; margin-bottom: 8px; }
+  .cta-sub { font-size: 0.92rem; color: rgba(255,255,255,0.55); font-weight: 400; }
+  .btn-cta { display: inline-block; padding: 14px 32px; border: 1px solid #ffffff; color: #ffffff; text-decoration: none; font-size: 0.72rem; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; white-space: nowrap; transition: background 0.2s, color 0.2s; }
+  .btn-cta:hover { background: #ffffff; color: var(--near-black); }
+  @media (max-width: 900px) {
+    .hero { padding: 40px 32px; }
+    .hero h1 { font-size: 2.4rem; }
+    .page-wrap { padding: 0 32px; }
+    .section-row, .pillars-header, .contact-grid { grid-template-columns: 1fr; gap: 24px; }
+    .pillars-section, .cta-section { padding: 48px 32px; }
+    .pillars-grid { grid-template-columns: 1fr; }
+    footer { padding: 32px; }
+  }
+</style>
+</head>
+<body>
+<nav>
+  <a class="nav-logo" href="index.html">Runde &amp; Co. LLC</a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="About-Us.html">About Us</a></li>
+    <li><a href="Philosophy.html">Philosophy</a></li>
+    <li><a href="CoreStrategies.html">Core Strategy</a></li>
+    <li><a href="Value-Strategies.html">Value Strategy</a></li>
+    <li><a href="International.html">International</a></li>
+    <li><a href="National-Recognition.html">National Recognition</a></li>
+    <li><a href="Contact-Us.html">Contact Us</a></li>
+    <li><a href="Form-ADV.html" class="active">Form ADV</a></li>
+  </ul>
+</nav>
+<div class="hero"><span class="hero-eyebrow">Runde &amp; Co. LLC</span><h1>Form ADV<br><strong>Part 3 &ndash; CRS</strong></h1><div class="hero-rule"></div><p class="hero-sub">Relationship Summary &nbsp;&middot;&nbsp; March 31, 2026</p></div>
+
+<div class="page-wrap">
+
+  <div class="section-row">
+    <div class="col-label">Introduction</div>
+    <div>
+      <p class="body-text">Runde &amp; Co. LLC is an independent, SEC registered investment adviser and provides advisory services to you. This document gives you a summary of the types of services we provide and how you pay. Brokerage and investment advisory services and fees differ. Runde is an investment advisory firm not a brokerage firm. Free and simple tools are available to research firms and financial professionals at <a href="https://www.investor.gov/CRS" target="_blank" class="adv-link">Investor.gov/CRS</a>, which also provides educational materials about investment advisers, and investing. Additional information about Runde &amp; Co. LLC also is available on the SEC&#39;s website at <a href="https://www.adviserinfo.sec.gov" target="_blank" class="adv-link">www.adviserinfo.sec.gov</a>. You can search this site by a unique identifying number, known as a CRD number. Our firm&#39;s CRD number is 106383. Please contact us for more information at 206-323-2255 or <a href="/cdn-cgi/l/email-protection#2441484d5e454641504c6456514a40414d4a5241575049414a5049454a45434149414a500a474b49" class="adv-link"><span class="__cf_email__" data-cfemail="4421282d3e252621302c0436312a20212d2a3221373029212a3029252a25232129212a306a272b29">[email&#160;protected]</span></a>.</p>
+    </div>
+  </div>
+
+  <div class="section-row">
+    <div class="col-label">Relationships &amp; Services</div>
+    <div>
+      <div class="content-title" style="font-size:1.3rem;margin-bottom:16px;">What investment services and advice can you provide me?</div>
+      <p class="body-text">Based on the advisory account you have with us, you pay an investment management fee at the end of each calendar quarter for our services, based on the value of the cash and investments in your advisory account.</p>
+      <p class="body-text">When you opened your account with us, we discussed your investment goals and designed with you a strategy to achieve your investment goals. We offer you advice on a regular basis and regularly monitor your account. We send a management account report to you each quarter.</p>
+      <p class="body-text">Your account with us allows us to buy and sell investments in your account without asking you in advance (a &ldquo;discretionary account&rdquo;). Our investment advice is generally limited to stocks, bonds and mutual funds. Your accounts are tailored to your needs through your asset allocation. Your account is reviewed at least monthly but more frequently when dictated by unexpected economic or market events. You are able to impose restrictions on investing in certain securities when you sign a suitability agreement.</p>
+      <p class="body-text">There is no required minimum account size and no required minimum annual fee.</p>
+      <p style="font-size:0.8rem;color:var(--light);margin-top:8px;">For additional information see Form ADV, Part 2 Brochure Item 4, 7 and 8.</p>
+    </div>
+  </div>
+
+  <div class="section-row">
+    <div class="col-label">Our Obligations</div>
+    <div>
+      <p class="body-text">We must abide by certain laws and regulations in our interactions with you.</p>
+      <p class="body-text">We are held to a fiduciary standard that covers our entire investment advisory relationship with you. For example, we are required to monitor your portfolio, investment strategy, and investments on an ongoing basis.</p>
+      <p class="body-text">Our interests can conflict with your interests. We must eliminate these conflicts and make decisions that are in your best interest.</p>
+    </div>
+  </div>
+
+  <div class="section-row">
+    <div class="col-label">Fees &amp; Costs</div>
+    <div>
+      <div class="content-title" style="font-size:1.3rem;margin-bottom:16px;">What fees will I pay, and how do your financial professionals make money?</div>
+      <p class="body-text">Investment management fees and costs affect the value of your account over time.</p>
+      <p class="body-text">The fees we charge were established in your written agreement with us when you opened your account and are charged on a quarterly basis in arrears. You may request in writing to be billed in advance. You may elect to be billed or to arrange with your custodians to allow us to directly debit fees from your accounts. The fees shall be prorated for each capital contribution and withdrawal (less than $10,000.00) made during the applicable calendar quarter. If you open or close your account during a calendar quarter you will be charged a prorated fee. Upon termination of any account, any prepaid, unearned fees will be promptly refunded, and any earned, unpaid fees will be due and payable.</p>
+      <p class="body-text">Our standard fee per annum on the assets under management is 1% on the first $2,000,000, 0.75% on the next $3,000,000, 0.50% on all over $5,000,000. As your account value increases, the percentage charged decreases but the total fees paid increase. Our firm is incented to grow the assets in your account through investment performance or additions to your account.</p>
+      <p class="body-text">Our fees are exclusive of brokerage commissions, transaction fees, and other related costs and expenses. You may incur certain charges imposed by custodians, brokers, third party investment such as fees charged by managers, custodial fees, wire transfer, etc. You will pay fees and costs whether you make or lose money on your investments. Fees and costs will reduce any amount of money you make on your investments over time. Please make sure you understand what fees and costs you are paying.</p>
+      <p class="body-text">Your investment professionals are compensated through an annual salary and bonus.</p>
+    </div>
+  </div>
+
+  <div class="section-row" style="border-bottom:none;">
+    <div class="col-label">Disciplinary History</div>
+    <div>
+      <div class="content-title" style="font-size:1.3rem;margin-bottom:16px;">Do you or your financial professionals have legal or disciplinary history?&rdquo;</div>
+      <p class="body-text">We have no legal and disciplinary events. Visit <a href="https://www.investor.gov" target="_blank" class="adv-link">Investor.gov</a> for a free and simple search tool to research our firm and our financial professionals.</p>
+      <p class="body-text">To report a problem to the SEC, visit <a href="https://www.investor.gov" target="_blank" class="adv-link">Investor.gov</a> or call the SEC&#39;s toll-free investor assistance line <a href="tel:8007320330" class="adv-link">(800) 732-0330</a>.</p>
+    </div>
+  </div>
+
+</div>
+<footer>
+  <div class="footer-logo">Runde &amp; Co. LLC</div>
+  <p>Seattle, WA &nbsp;|&nbsp; <a href="tel:2063232255">206-323-2255</a> &nbsp;|&nbsp; Investment Management</p>
+  <p style="margin-top:6px;">&copy; 2026 Runde &amp; Co. LLC. All rights reserved.</p>
+  <p class="footer-disclaimer">Runde &amp; Co. LLC is registered with the Securities and Exchange Commission as an investment adviser under Section 203(c) of the Investment Adviser Act of 1940.</p>
+</footer>
+</body>
+</html>

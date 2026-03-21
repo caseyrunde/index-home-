@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Core Strategy | Runde &amp; Co. LLC</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600&family=Jost:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --black:      #000000;
+    --near-black: #111111;
+    --mid:        #555555;
+    --light:      #888888;
+    --rule:       #cccccc;
+    --rule-light: #e8e8e8;
+    --bg:         #ffffff;
+    --bg-off:     #f7f7f7;
+  }
+  body { font-family: 'Jost', sans-serif; background: var(--bg); color: var(--near-black); font-weight: 400; -webkit-font-smoothing: antialiased; }
+  nav { position: sticky; top: 0; z-index: 100; background: #ffffff; border-bottom: 2px solid #0f04aa; display: flex; align-items: center; padding: 0 48px; height: 64px; }
+  .nav-logo { font-family: 'Cormorant Garamond', serif; font-size: 1.575rem; font-weight: 600; color: #000000; text-decoration: none; letter-spacing: 0.08em; margin-right: auto; white-space: nowrap; }
+  .nav-links { list-style: none; display: flex; gap: 20px; align-items: center; }
+  .nav-links a { font-family: 'Cormorant Garamond', serif; font-size: 0.725rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: #000000; text-decoration: none; padding: 4px 0; border-bottom: 2px solid transparent; transition: border-color 0.15s; white-space: nowrap; }
+  .nav-links a:hover { border-bottom-color: #0f04aa; }
+  .nav-links a.active { border-bottom-color: #0f04aa; }
+  .hero { max-width: 1200px; margin: 0 auto; padding: 80px 80px 64px; border-bottom: 2px solid #0f04aa; }
+  .hero-eyebrow { font-family: 'Jost', sans-serif; font-size: 0.65rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--near-black); font-weight: 700; margin-bottom: 24px; display: block; }
+  .hero h1 { font-family: 'Jost', sans-serif; font-size: 3.8rem; font-weight: 400; line-height: 1.05; color: var(--black); max-width: 640px; margin-bottom: 32px; letter-spacing: -0.01em; }
+  .hero h1 strong { font-weight: 600; }
+  .hero-rule { width: 40px; height: 2px; background: #0f04aa; margin-bottom: 28px; }
+  .hero-sub { font-size: 1.0rem; color: var(--mid); max-width: 560px; line-height: 1.8; font-weight: 400; }
+  .page-wrap { max-width: 1200px; margin: 0 auto; padding: 0 80px; }
+  .section-row { padding: 64px 0; display: grid; grid-template-columns: 200px 1fr; gap: 80px; border-bottom: 2px solid #0f04aa; align-items: start; }
+  .section-row:last-child { border-bottom: none; }
+  .col-label { font-family: 'Jost', sans-serif; font-size: 0.65rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--near-black); font-weight: 700; padding-top: 8px; }
+  .content-title { font-family: 'Jost', sans-serif; font-size: 1.8rem; font-weight: 400; color: var(--black); line-height: 1.25; margin-bottom: 28px; letter-spacing: -0.01em; }
+  .content-title strong { font-weight: 600; }
+  .body-text { font-size: 0.92rem; color: var(--mid); line-height: 1.9; font-weight: 400; margin-bottom: 18px; }
+  .strategy-block { border-top: 2px solid #0f04aa; padding-top: 28px; margin-bottom: 48px; }
+  .strategy-block:last-child { margin-bottom: 0; }
+  .strategy-name { font-family: 'Jost', sans-serif; font-size: 1.1rem; font-weight: 600; color: var(--black); margin-bottom: 8px; }
+  .strategy-desc { font-size: 0.875rem; color: var(--mid); line-height: 1.8; font-weight: 400; margin-bottom: 20px; }
+  .perf-note { font-size: 0.72rem; color: var(--light); margin-top: 12px; }
+  .recognition-item { margin-bottom: 48px; padding-bottom: 48px; border-bottom: 1px solid var(--rule-light); }
+  .recognition-item:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+  .recognition-award { font-family: 'Jost', sans-serif; font-size: 0.875rem; font-weight: 600; color: var(--black); margin-bottom: 4px; }
+  .recognition-sub { font-size: 0.8rem; color: var(--mid); margin-bottom: 16px; }
+  .quote-block { border-top: 2px solid #0f04aa; padding: 24px 0 0 0; margin-top: 24px; }
+  .quote-text { font-size: 0.875rem; color: var(--mid); line-height: 1.85; font-weight: 400; margin-bottom: 12px; }
+  .quote-attr { font-size: 0.72rem; color: var(--light); letter-spacing: 0.08em; text-transform: uppercase; }
+  .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: start; }
+  .contact-card { border-top: 2px solid #0f04aa; padding-top: 20px; margin-bottom: 32px; }
+  .contact-card:last-child { margin-bottom: 0; }
+  .contact-name { font-family: 'Jost', sans-serif; font-size: 1.1rem; font-weight: 600; color: var(--black); margin-bottom: 4px; }
+  .contact-title-label { font-size: 0.68rem; color: var(--mid); letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 12px; }
+  .contact-email { font-size: 0.875rem; color: var(--black); text-decoration: none; }
+  .contact-email:hover { text-decoration: underline; }
+  .address-block { font-size: 0.92rem; color: var(--mid); line-height: 1.9; font-weight: 400; margin-bottom: 24px; }
+  .address-block a { color: var(--black); text-decoration: none; }
+  .address-block a:hover { text-decoration: underline; }
+  .map-wrap { border: 1px solid var(--rule); overflow: hidden; }
+  .fee-table { border-top: 2px solid #0f04aa; padding-top: 20px; margin: 24px 0; }
+  .fee-row { display: flex; justify-content: space-between; padding: 10px 0; border-bottom: 1px solid var(--rule-light); font-size: 0.875rem; color: var(--mid); }
+  .fee-row:last-child { border-bottom: none; }
+  .fee-row span:first-child { font-weight: 500; color: var(--black); }
+  .adv-link { color: var(--black); }
+  .adv-link:hover { text-decoration: underline; }
+  footer { background: var(--bg-off); border-top: 1px solid var(--rule); padding: 40px 80px; text-align: center; }
+  .footer-logo { font-family: 'Cormorant Garamond', serif; font-size: 1.181rem; font-weight: 600; color: #000000; margin-bottom: 12px; letter-spacing: 0.08em; }
+  footer p { font-size: 1.08rem; color: var(--mid); line-height: 1.8; font-weight: 400; }
+  footer a { color: var(--mid); text-decoration: none; }
+  footer a:hover { color: var(--black); }
+  .footer-disclaimer { font-size: 0.975rem; color: var(--light); margin-top: 12px; max-width: 700px; margin-left: auto; margin-right: auto; }
+  .pillars-section { background: var(--bg-off); padding: 64px 80px; border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule); }
+  .pillars-inner { max-width: 1040px; margin: 0 auto; }
+  .pillars-header { display: grid; grid-template-columns: 200px 1fr; gap: 80px; margin-bottom: 48px; align-items: start; }
+  .pillars-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 24px; }
+  .pillar-card { background: #ffffff; padding: 32px 28px; border-top: 2px solid #0f04aa; }
+  .pillar-card h3 { font-family: 'Jost', sans-serif; font-size: 0.82rem; font-weight: 600; color: var(--black); margin-bottom: 14px; line-height: 1.4; text-transform: uppercase; letter-spacing: 0.04em; }
+  .pillar-card p { font-size: 0.875rem; color: var(--mid); line-height: 1.8; font-weight: 400; }
+  .cta-section { background: var(--near-black); padding: 64px 80px; }
+  .cta-inner { max-width: 1040px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; gap: 40px; }
+  .cta-heading { font-family: 'Jost', sans-serif; font-size: 1.6rem; font-weight: 400; color: #ffffff; margin-bottom: 8px; }
+  .cta-sub { font-size: 0.92rem; color: rgba(255,255,255,0.55); font-weight: 400; }
+  .btn-cta { display: inline-block; padding: 14px 32px; border: 1px solid #ffffff; color: #ffffff; text-decoration: none; font-size: 0.72rem; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; white-space: nowrap; transition: background 0.2s, color 0.2s; }
+  .btn-cta:hover { background: #ffffff; color: var(--near-black); }
+  @media (max-width: 900px) {
+    .hero { padding: 40px 32px; }
+    .hero h1 { font-size: 2.4rem; }
+    .page-wrap { padding: 0 32px; }
+    .section-row, .pillars-header, .contact-grid { grid-template-columns: 1fr; gap: 24px; }
+    .pillars-section, .cta-section { padding: 48px 32px; }
+    .pillars-grid { grid-template-columns: 1fr; }
+    footer { padding: 32px; }
+  }
+</style>
+</head>
+<body>
+<nav>
+  <a class="nav-logo" href="index.html">Runde &amp; Co. LLC</a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="About-Us.html">About Us</a></li>
+    <li><a href="Philosophy.html">Philosophy</a></li>
+    <li><a href="CoreStrategies.html" class="active">Core Strategy</a></li>
+    <li><a href="Value-Strategies.html">Value Strategy</a></li>
+    <li><a href="International.html">International</a></li>
+    <li><a href="National-Recognition.html">National Recognition</a></li>
+    <li><a href="Contact-Us.html">Contact Us</a></li>
+    <li><a href="Form-ADV.html">Form ADV</a></li>
+  </ul>
+</nav>
+<div class="hero"><span class="hero-eyebrow">Investment Strategies</span><h1>Runde<br><strong>Core Strategy</strong></h1><div class="hero-rule"></div><p class="hero-sub">A fundamentals-based, process-driven approach to equity investing.</p></div>
+
+<div class="page-wrap">
+  <div class="section-row">
+    <div class="col-label">Core Investment Process</div>
+    <div>
+      <div class="content-title">Proprietary.<br><strong>Repeatable. Proven.</strong></div>
+      <p class="body-text">The Runde Core process is based on a highly-diversified, fundamentally-based, process-driven approach to investing. The fundamental inputs are enterprise value, historic multiples of key metrics and forecasted values of key metrics. The process has been consistently applied for years and has proven replicable across market capitalizations and market environments. The process typically results in a portfolio of companies with higher price-to-book value ratios, higher forecasted earnings growth and a lower dividend yield.</p>
+      <p class="body-text">The Runde Core process is based on a proprietary filter developed in-house. The filter allows for the screening of a large number of securities simultaneously in order to identify overvalued and undervalued equity securities.</p>
+    </div>
+  </div>
+  <div class="section-row">
+    <div class="col-label">Strategy</div>
+    <div>
+      <div class="strategy-block">
+        <div class="strategy-name">Runde Large-Cap Core</div>
+        <p class="strategy-desc">A long-only, earnings-driven, predominantly U.S. large-cap equity portfolio. Inception: September 30, 2003.</p>
+        <div style="overflow-x:auto;margin-bottom:12px;"><table style="width:100%;border-collapse:collapse;font-family:'Jost',sans-serif;font-size:0.8rem;background:#fff;border:1px solid var(--rule);"><thead><tr style="border-bottom:2px solid var(--near-black);background:var(--bg-off);"><th style="text-align:left;padding:8px 12px;color:var(--near-black);font-size:0.65rem;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;white-space:nowrap;"></th><th style="text-align:right;padding:8px 10px;color:var(--near-black);font-weight:600;font-size:0.65rem;letter-spacing:0.06em;text-transform:uppercase;">2025</th><th style="text-align:right;padding:8px 10px;color:var(--near-black);font-weight:600;font-size:0.65rem;letter-spacing:0.06em;text-transform:uppercase;">2024</th><th style="text-align:right;padding:8px 10px;color:var(--near-black);font-weight:600;font-size:0.65rem;letter-spacing:0.06em;text-transform:uppercase;">2023</th><th style="text-align:right;padding:8px 10px;color:var(--near-black);font-weight:600;font-size:0.65rem;letter-spacing:0.06em;text-transform:uppercase;">2022</th><th style="text-align:right;padding:8px 10px;color:var(--near-black);font-weight:600;font-size:0.65rem;letter-spacing:0.06em;text-transform:uppercase;">2021</th><th style="text-align:right;padding:8px 10px;color:var(--near-black);font-weight:600;font-size:0.65rem;letter-spacing:0.06em;text-transform:uppercase;">2020</th><th style="text-align:right;padding:8px 10px;color:var(--near-black);font-weight:600;font-size:0.65rem;letter-spacing:0.06em;text-transform:uppercase;">2019</th><th style="text-align:right;padding:8px 10px;color:var(--near-black);font-weight:600;font-size:0.65rem;letter-spacing:0.06em;text-transform:uppercase;">2018</th><th style="text-align:right;padding:8px 10px;color:var(--near-black);font-weight:600;font-size:0.65rem;letter-spacing:0.06em;text-transform:uppercase;">2017</th><th style="text-align:right;padding:8px 10px;color:var(--near-black);font-weight:600;font-size:0.65rem;letter-spacing:0.06em;text-transform:uppercase;">2016</th></tr></thead><tbody><tr style="border-bottom:1px solid var(--rule-light);"><td style="padding:9px 12px;color:var(--near-black);white-space:nowrap;font-weight:600;">Runde Large-Cap Core (Gross)</td><td style="text-align:right;padding:9px 10px;color:#000000;font-weight:500;">+18.5%</td><td style="text-align:right;padding:9px 10px;color:#000000;font-weight:500;">+26.1%</td><td style="text-align:right;padding:9px 10px;color:#000000;font-weight:500;">+28.9%</td><td style="text-align:right;padding:9px 10px;color:#cc0000;font-weight:500;">(19.4)%</td><td style="text-align:right;padding:9px 10px;color:#000000;font-weight:500;">+28.4%</td><td style="text-align:right;padding:9px 10px;color:#000000;font-weight:500;">+14.3%</td><td style="text-align:right;padding:9px 10px;color:#000000;font-weight:500;">+28.7%</td><td style="text-align:right;padding:9px 10px;color:#cc0000;font-weight:500;">(8.1)%</td><td style="text-align:right;padding:9px 10px;color:#000000;font-weight:500;">+22.4%</td><td style="text-align:right;padding:9px 10px;color:#000000;font-weight:500;">+12.6%</td></tr><tr style="border-bottom:1px solid var(--rule-light);"><td style="padding:9px 12px;color:#333333;white-space:nowrap;font-weight:400;">Runde Large-Cap Core (Net)</td><td style="text-align:right;padding:9px 10px;color:#333333;font-weight:400;">+17.6%</td><td style="text-align:right;padding:9px 10px;color:#333333;font-weight:400;">+25.1%</td><td style="text-align:right;padding:9px 10px;color:#333333;font-weight:400;">+27.8%</td><td style="text-align:right;padding:9px 10px;color:#cc0000;font-weight:500;">(20.1)%</td><td style="text-align:right;padding:9px 10px;color:#333333;font-weight:400;">+26.5%</td><td style="text-align:right;padding:9px 10px;color:#333333;font-weight:400;">+13.2%</td><td style="text-align:right;padding:9px 10px;color:#333333;font-weight:400;">+27.6%</td><td style="text-align:right;padding:9px 10px;color:#cc0000;font-weight:500;">(8.9)%</td><td style="text-align:right;padding:9px 10px;color:#333333;font-weight:400;">+21.4%</td><td style="text-align:right;padding:9px 10px;color:#333333;font-weight:400;">+11.6%</td></tr><tr style="border-bottom:1px solid var(--rule-light); border-top:2px solid var(--rule);"><td style="padding:9px 12px;color:#555555;white-space:nowrap;font-weight:400;">iShares Russell 1000 ETF</td><td style="text-align:right;padding:9px 10px;color:#555555;font-weight:400;">+17.4%</td><td style="text-align:right;padding:9px 10px;color:#555555;font-weight:400;">+24.5%</td><td style="text-align:right;padding:9px 10px;color:#555555;font-weight:400;">+26.5%</td><td style="text-align:right;padding:9px 10px;color:#cc0000;font-weight:500;">(19.1)%</td><td style="text-align:right;padding:9px 10px;color:#555555;font-weight:400;">+26.5%</td><td style="text-align:right;padding:9px 10px;color:#555555;font-weight:400;">+21.0%</td><td style="text-align:right;padding:9px 10px;color:#555555;font-weight:400;">+31.4%</td><td style="text-align:right;padding:9px 10px;color:#cc0000;font-weight:500;">(4.8)%</td><td style="text-align:right;padding:9px 10px;color:#555555;font-weight:400;">+21.7%</td><td style="text-align:right;padding:9px 10px;color:#555555;font-weight:400;">+12.1%</td></tr><tr style="border-bottom:1px solid var(--rule-light); border-top:2px solid var(--rule);"><td style="padding:9px 12px;color:#555555;white-space:nowrap;font-weight:400;">Dow Jones Industrial Average</td><td style="text-align:right;padding:9px 10px;color:#555555;font-weight:400;">+14.9%</td><td style="text-align:right;padding:9px 10px;color:#555555;font-weight:400;">+15.0%</td><td style="text-align:right;padding:9px 10px;color:#555555;font-weight:400;">+17.9%</td><td style="text-align:right;padding:9px 10px;color:#cc0000;font-weight:500;">(6.9)%</td><td style="text-align:right;padding:9px 10px;color:#555555;font-weight:400;">+21.0%</td><td style="text-align:right;padding:9px 10px;color:#555555;font-weight:400;">+9.7%</td><td style="text-align:right;padding:9px 10px;color:#555555;font-weight:400;">+25.3%</td><td style="text-align:right;padding:9px 10px;color:#cc0000;font-weight:500;">(3.5)%</td><td style="text-align:right;padding:9px 10px;color:#555555;font-weight:400;">+28.1%</td><td style="text-align:right;padding:9px 10px;color:#555555;font-weight:400;">+16.5%</td></tr></tbody></table></div><p class="perf-note">Investment returns through December 31, 2025</p>
+      </div>
+    </div>
+  </div>
+</div>
+<footer>
+  <div class="footer-logo">Runde &amp; Co. LLC</div>
+  <p>Seattle, WA &nbsp;|&nbsp; <a href="tel:2063232255">206-323-2255</a> &nbsp;|&nbsp; Investment Management</p>
+  <p style="margin-top:6px;">&copy; 2025 Runde &amp; Co. LLC. All rights reserved.</p>
+  <p class="footer-disclaimer">Runde &amp; Co. LLC is registered with the Securities and Exchange Commission as an investment adviser under Section 203(c) of the Investment Adviser Act of 1940.</p>
+</footer>
+</body>
+</html>

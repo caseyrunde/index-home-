@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Philosophy | Runde &amp; Co. LLC</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600&family=Jost:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --black:      #000000;
+    --near-black: #111111;
+    --mid:        #555555;
+    --light:      #888888;
+    --rule:       #cccccc;
+    --rule-light: #e8e8e8;
+    --bg:         #ffffff;
+    --bg-off:     #f7f7f7;
+  }
+  body { font-family: 'Jost', sans-serif; background: var(--bg); color: var(--near-black); font-weight: 400; -webkit-font-smoothing: antialiased; }
+  nav { position: sticky; top: 0; z-index: 100; background: #ffffff; border-bottom: 2px solid #0f04aa; display: flex; align-items: center; padding: 0 48px; height: 64px; }
+  .nav-logo { font-family: 'Cormorant Garamond', serif; font-size: 1.575rem; font-weight: 600; color: #000000; text-decoration: none; letter-spacing: 0.08em; margin-right: auto; white-space: nowrap; }
+  .nav-links { list-style: none; display: flex; gap: 20px; align-items: center; }
+  .nav-links a { font-family: 'Cormorant Garamond', serif; font-size: 0.725rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: #000000; text-decoration: none; padding: 4px 0; border-bottom: 2px solid transparent; transition: border-color 0.15s; white-space: nowrap; }
+  .nav-links a:hover { border-bottom-color: #0f04aa; }
+  .nav-links a.active { border-bottom-color: #0f04aa; }
+  .hero { max-width: 1200px; margin: 0 auto; padding: 80px 80px 64px; border-bottom: 2px solid #0f04aa; }
+  .hero-eyebrow { font-family: 'Jost', sans-serif; font-size: 0.65rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--near-black); font-weight: 700; margin-bottom: 24px; display: block; }
+  .hero h1 { font-family: 'Jost', sans-serif; font-size: 3.8rem; font-weight: 400; line-height: 1.05; color: var(--black); max-width: 640px; margin-bottom: 32px; letter-spacing: -0.01em; }
+  .hero h1 strong { font-weight: 600; }
+  .hero-rule { width: 40px; height: 2px; background: #0f04aa; margin-bottom: 28px; }
+  .hero-sub { font-size: 1.0rem; color: var(--mid); max-width: 560px; line-height: 1.8; font-weight: 400; }
+  .page-wrap { max-width: 1200px; margin: 0 auto; padding: 0 80px; }
+  .section-row { padding: 64px 0; display: grid; grid-template-columns: 200px 1fr; gap: 80px; border-bottom: 1px solid var(--rule); align-items: start; }
+  .section-row:last-child { border-bottom: none; }
+  .col-label { font-family: 'Jost', sans-serif; font-size: 0.65rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--near-black); font-weight: 700; padding-top: 8px; }
+  .content-title { font-family: 'Jost', sans-serif; font-size: 1.8rem; font-weight: 400; color: var(--black); line-height: 1.25; margin-bottom: 28px; letter-spacing: -0.01em; }
+  .content-title strong { font-weight: 600; }
+  .body-text { font-size: 0.92rem; color: var(--mid); line-height: 1.9; font-weight: 400; margin-bottom: 18px; }
+  .strategy-block { border-top: 2px solid #0f04aa; padding-top: 28px; margin-bottom: 48px; }
+  .strategy-block:last-child { margin-bottom: 0; }
+  .strategy-name { font-family: 'Jost', sans-serif; font-size: 1.1rem; font-weight: 600; color: var(--black); margin-bottom: 8px; }
+  .strategy-desc { font-size: 0.875rem; color: var(--mid); line-height: 1.8; font-weight: 400; margin-bottom: 20px; }
+  .perf-note { font-size: 0.72rem; color: var(--light); margin-top: 12px; }
+  .recognition-item { margin-bottom: 48px; padding-bottom: 48px; border-bottom: 1px solid var(--rule-light); }
+  .recognition-item:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+  .recognition-award { font-family: 'Jost', sans-serif; font-size: 0.875rem; font-weight: 600; color: var(--black); margin-bottom: 4px; }
+  .recognition-sub { font-size: 0.8rem; color: var(--mid); margin-bottom: 16px; }
+  .quote-block { border-top: 2px solid #0f04aa; padding: 24px 0 0 0; margin-top: 24px; }
+  .quote-text { font-size: 0.875rem; color: var(--mid); line-height: 1.85; font-weight: 400; margin-bottom: 12px; }
+  .quote-attr { font-size: 0.72rem; color: var(--light); letter-spacing: 0.08em; text-transform: uppercase; }
+  .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: start; }
+  .contact-card { border-top: 2px solid #0f04aa; padding-top: 20px; margin-bottom: 32px; }
+  .contact-card:last-child { margin-bottom: 0; }
+  .contact-name { font-family: 'Jost', sans-serif; font-size: 1.1rem; font-weight: 600; color: var(--black); margin-bottom: 4px; }
+  .contact-title-label { font-size: 0.68rem; color: var(--mid); letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 12px; }
+  .contact-email { font-size: 0.875rem; color: var(--black); text-decoration: none; }
+  .contact-email:hover { text-decoration: underline; }
+  .address-block { font-size: 0.92rem; color: var(--mid); line-height: 1.9; font-weight: 400; margin-bottom: 24px; }
+  .address-block a { color: var(--black); text-decoration: none; }
+  .address-block a:hover { text-decoration: underline; }
+  .map-wrap { border: 1px solid var(--rule); overflow: hidden; }
+  .fee-table { border-top: 2px solid #0f04aa; padding-top: 20px; margin: 24px 0; }
+  .fee-row { display: flex; justify-content: space-between; padding: 10px 0; border-bottom: 1px solid var(--rule-light); font-size: 0.875rem; color: var(--mid); }
+  .fee-row:last-child { border-bottom: none; }
+  .fee-row span:first-child { font-weight: 500; color: var(--black); }
+  .adv-link { color: var(--black); }
+  .adv-link:hover { text-decoration: underline; }
+  footer { background: var(--bg-off); border-top: 1px solid var(--rule); padding: 40px 80px; text-align: center; }
+  .footer-logo { font-family: 'Cormorant Garamond', serif; font-size: 1.181rem; font-weight: 600; color: #000000; margin-bottom: 12px; letter-spacing: 0.08em; }
+  footer p { font-size: 1.08rem; color: var(--mid); line-height: 1.8; font-weight: 400; }
+  footer a { color: var(--mid); text-decoration: none; }
+  footer a:hover { color: var(--black); }
+  .footer-disclaimer { font-size: 0.975rem; color: var(--light); margin-top: 12px; max-width: 700px; margin-left: auto; margin-right: auto; }
+  .pillars-section { background: var(--bg-off); padding: 64px 80px; border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule); }
+  .pillars-inner { max-width: 1040px; margin: 0 auto; }
+  .pillars-header { display: grid; grid-template-columns: 200px 1fr; gap: 80px; margin-bottom: 48px; align-items: start; }
+  .pillars-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 24px; }
+  .pillar-card { background: #ffffff; padding: 32px 28px; border-top: 2px solid #0f04aa; }
+  .pillar-card h3 { font-family: 'Jost', sans-serif; font-size: 0.82rem; font-weight: 600; color: var(--black); margin-bottom: 14px; line-height: 1.4; text-transform: uppercase; letter-spacing: 0.04em; }
+  .pillar-card p { font-size: 0.875rem; color: var(--mid); line-height: 1.8; font-weight: 400; }
+  .cta-section { background: var(--near-black); padding: 64px 80px; }
+  .cta-inner { max-width: 1040px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; gap: 40px; }
+  .cta-heading { font-family: 'Jost', sans-serif; font-size: 1.6rem; font-weight: 400; color: #ffffff; margin-bottom: 8px; }
+  .cta-sub { font-size: 0.92rem; color: rgba(255,255,255,0.55); font-weight: 400; }
+  .btn-cta { display: inline-block; padding: 14px 32px; border: 1px solid #ffffff; color: #ffffff; text-decoration: none; font-size: 0.72rem; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; white-space: nowrap; transition: background 0.2s, color 0.2s; }
+  .btn-cta:hover { background: #ffffff; color: var(--near-black); }
+  @media (max-width: 900px) {
+    .hero { padding: 40px 32px; }
+    .hero h1 { font-size: 2.4rem; }
+    .page-wrap { padding: 0 32px; }
+    .section-row, .pillars-header, .contact-grid { grid-template-columns: 1fr; gap: 24px; }
+    .pillars-section, .cta-section { padding: 48px 32px; }
+    .pillars-grid { grid-template-columns: 1fr; }
+    footer { padding: 32px; }
+  }
+</style>
+</head>
+<body>
+<nav>
+  <a class="nav-logo" href="index.html">Runde &amp; Co. LLC</a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="About-Us.html">About Us</a></li>
+    <li><a href="Philosophy.html" class="active">Philosophy</a></li>
+    <li><a href="CoreStrategies.html">Core Strategy</a></li>
+    <li><a href="Value-Strategies.html">Value Strategy</a></li>
+    <li><a href="International.html">International</a></li>
+    <li><a href="National-Recognition.html">National Recognition</a></li>
+    <li><a href="Contact-Us.html">Contact Us</a></li>
+    <li><a href="Form-ADV.html">Form ADV</a></li>
+  </ul>
+</nav>
+<div class="hero"><span class="hero-eyebrow">Runde &amp; Co. LLC</span><h1>Our Investment<br><strong>Philosophy</strong></h1><div class="hero-rule"></div><p class="hero-sub">A disciplined, process-driven approach to achieving solid risk-adjusted returns through highly diversified equity portfolios.</p></div>
+
+<div class="page-wrap">
+  <div class="section-row">
+    <div class="col-label">Overview</div>
+    <div>
+      <div class="content-title">Built on process.<br><strong>Driven by fundamentals.</strong></div>
+      <p class="body-text">Runde &amp; Co. LLC seeks to achieve solid, risk-adjusted returns for its investors through the construction and management of highly diversified portfolios of equity securities. The investment strategy is a fundamentally-based, process-driven approach. Runde's objective methodology, based on a proprietary filter developed in-house, is designed to identify undervalued and overvalued stocks.</p>
+      <p class="body-text">There are a number of benefits to a process-driven investment strategy and specifically to the Runde strategy. The primary benefit is that the Runde implementation creates and facilitates a dispassionate, unbiased approach to investing which is replicable and in which stock selection criteria can be uniformly applied. A secondary benefit is that a systematic approach allows for greater diversification of the assets which contributes to better risk-adjusted performance and a reduction in company-specific risks. Lastly, Runde portfolios have very low turnover which mitigates style-drift.</p>
+    </div>
+  </div>
+</div>
+
+<div class="pillars-section">
+  <div class="pillars-inner">
+    <div class="pillars-header">
+      <div class="col-label">Core Principles</div>
+      <div style="font-family:'Jost',sans-serif;font-size:1.8rem;font-weight:400;color:var(--black);line-height:1.25;letter-spacing:-0.01em;">The foundation of <strong>our approach.</strong></div>
+    </div>
+    <div class="pillars-grid">
+      <div class="pillar-card">
+        <h3>Fundamentals Drive Stock Price Returns</h3>
+        <p>Our process is anchored in fundamental analysis — enterprise value, key metric multiples, and forecasted earnings — to identify securities the market has mispriced.</p>
+      </div>
+      <div class="pillar-card">
+        <h3>Disciplined Approach Is Replicable</h3>
+        <p>A systematic, rules-based process removes emotion from investment decisions. Stock selection criteria are applied uniformly, creating a consistently replicable approach.</p>
+      </div>
+      <div class="pillar-card">
+        <h3>Diversification Reduces Corporate Event Risk</h3>
+        <p>Greater diversification reduces company-specific risk and contributes to better risk-adjusted performance. Low portfolio turnover further mitigates style-drift over time.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="page-wrap">
+  <div class="section-row">
+    <div class="col-label">Our Commitment</div>
+    <div>
+      <div style="display:flex;flex-direction:column;">
+        <div style="padding:24px 0;border-top:2px solid #0f04aa;border-bottom:1px solid var(--rule-light);display:grid;grid-template-columns:200px 1fr;gap:32px;"><div style="font-size:0.72rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:var(--black);padding-top:2px;">Independent &amp; Objective</div><div class="body-text" style="margin:0;">Runde is an SEC-registered, majority woman-owned investment manager. Our independence ensures our interests are always aligned with yours.</div></div>
+        <div style="padding:24px 0;border-top:2px solid #0f04aa;border-bottom:1px solid var(--rule-light);display:grid;grid-template-columns:200px 1fr;gap:32px;"><div style="font-size:0.72rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:var(--black);padding-top:2px;">Proprietary Process</div><div class="body-text" style="margin:0;">Our in-house filter screens a large universe of securities simultaneously to identify overvalued and undervalued equity securities with precision.</div></div>
+        <div style="padding:24px 0;border-top:2px solid #0f04aa;display:grid;grid-template-columns:200px 1fr;gap:32px;"><div style="font-size:0.72rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:var(--black);padding-top:2px;">GIPS Compliant</div><div class="body-text" style="margin:0;">Performance is reported in compliance with the Global Investment Performance Standards, ensuring transparency and comparability for our clients.</div></div>
+      </div>
+    </div>
+  </div>
+</div>
+<footer>
+  <div class="footer-logo">Runde &amp; Co. LLC</div>
+  <p>Seattle, WA &nbsp;|&nbsp; <a href="tel:2063232255">206-323-2255</a> &nbsp;|&nbsp; Investment Management</p>
+  <p style="margin-top:6px;">&copy; 2025 Runde &amp; Co. LLC. All rights reserved.</p>
+  <p class="footer-disclaimer">Runde &amp; Co. LLC is registered with the Securities and Exchange Commission as an investment adviser under Section 203(c) of the Investment Adviser Act of 1940.</p>
+</footer>
+</body>
+</html>

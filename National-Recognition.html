@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>National Recognition | Runde &amp; Co. LLC</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600&family=Jost:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --black:      #000000;
+    --near-black: #111111;
+    --mid:        #555555;
+    --light:      #888888;
+    --rule:       #cccccc;
+    --rule-light: #e8e8e8;
+    --bg:         #ffffff;
+    --bg-off:     #f7f7f7;
+  }
+  body { font-family: 'Jost', sans-serif; background: var(--bg); color: var(--near-black); font-weight: 400; -webkit-font-smoothing: antialiased; }
+  nav { position: sticky; top: 0; z-index: 100; background: #ffffff; border-bottom: 2px solid #0f04aa; display: flex; align-items: center; padding: 0 48px; height: 64px; }
+  .nav-logo { font-family: 'Cormorant Garamond', serif; font-size: 1.575rem; font-weight: 600; color: #000000; text-decoration: none; letter-spacing: 0.08em; margin-right: auto; white-space: nowrap; }
+  .nav-links { list-style: none; display: flex; gap: 20px; align-items: center; }
+  .nav-links a { font-family: 'Cormorant Garamond', serif; font-size: 0.725rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: #000000; text-decoration: none; padding: 4px 0; border-bottom: 2px solid transparent; transition: border-color 0.15s; white-space: nowrap; }
+  .nav-links a:hover { border-bottom-color: #0f04aa; }
+  .nav-links a.active { border-bottom-color: #0f04aa; }
+  .hero { max-width: 1200px; margin: 0 auto; padding: 80px 80px 64px; border-bottom: 2px solid #0f04aa; }
+  .hero-eyebrow { font-family: 'Jost', sans-serif; font-size: 0.65rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--near-black); font-weight: 700; margin-bottom: 24px; display: block; }
+  .hero h1 { font-family: 'Jost', sans-serif; font-size: 3.8rem; font-weight: 400; line-height: 1.05; color: var(--black); max-width: 640px; margin-bottom: 32px; letter-spacing: -0.01em; }
+  .hero h1 strong { font-weight: 600; }
+  .hero-rule { width: 40px; height: 2px; background: #0f04aa; margin-bottom: 28px; }
+  .hero-sub { font-size: 1.0rem; color: var(--mid); max-width: 560px; line-height: 1.8; font-weight: 400; }
+  .page-wrap { max-width: 1200px; margin: 0 auto; padding: 0 80px; }
+  .section-row { padding: 64px 0; display: grid; grid-template-columns: 200px 1fr; gap: 80px; border-bottom: 1px solid var(--rule); align-items: start; }
+  .section-row:last-child { border-bottom: none; }
+  .col-label { font-family: 'Jost', sans-serif; font-size: 0.65rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--near-black); font-weight: 700; padding-top: 8px; }
+  .content-title { font-family: 'Jost', sans-serif; font-size: 1.8rem; font-weight: 400; color: var(--black); line-height: 1.25; margin-bottom: 28px; letter-spacing: -0.01em; }
+  .content-title strong { font-weight: 600; }
+  .body-text { font-size: 0.92rem; color: var(--mid); line-height: 1.9; font-weight: 400; margin-bottom: 18px; }
+  .strategy-block { border-top: 2px solid #0f04aa; padding-top: 28px; margin-bottom: 48px; }
+  .strategy-block:last-child { margin-bottom: 0; }
+  .strategy-name { font-family: 'Jost', sans-serif; font-size: 1.1rem; font-weight: 600; color: var(--black); margin-bottom: 8px; }
+  .strategy-desc { font-size: 0.875rem; color: var(--mid); line-height: 1.8; font-weight: 400; margin-bottom: 20px; }
+  .perf-note { font-size: 0.72rem; color: var(--light); margin-top: 12px; }
+  .recognition-item { margin-bottom: 48px; padding-bottom: 48px; border-bottom: 1px solid var(--rule-light); }
+  .recognition-item:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+  .recognition-award { font-family: 'Jost', sans-serif; font-size: 0.875rem; font-weight: 600; color: var(--black); margin-bottom: 4px; }
+  .recognition-sub { font-size: 0.8rem; color: var(--mid); margin-bottom: 16px; }
+  .quote-block { border-top: 2px solid #0f04aa; padding: 24px 0 0 0; margin-top: 24px; }
+  .quote-text { font-size: 0.875rem; color: var(--mid); line-height: 1.85; font-weight: 400; margin-bottom: 12px; }
+  .quote-attr { font-size: 0.72rem; color: var(--light); letter-spacing: 0.08em; text-transform: uppercase; }
+  .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: start; }
+  .contact-card { border-top: 2px solid #0f04aa; padding-top: 20px; margin-bottom: 32px; }
+  .contact-card:last-child { margin-bottom: 0; }
+  .contact-name { font-family: 'Jost', sans-serif; font-size: 1.1rem; font-weight: 600; color: var(--black); margin-bottom: 4px; }
+  .contact-title-label { font-size: 0.68rem; color: var(--mid); letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 12px; }
+  .contact-email { font-size: 0.875rem; color: var(--black); text-decoration: none; }
+  .contact-email:hover { text-decoration: underline; }
+  .address-block { font-size: 0.92rem; color: var(--mid); line-height: 1.9; font-weight: 400; margin-bottom: 24px; }
+  .address-block a { color: var(--black); text-decoration: none; }
+  .address-block a:hover { text-decoration: underline; }
+  .map-wrap { border: 1px solid var(--rule); overflow: hidden; }
+  .fee-table { border-top: 2px solid #0f04aa; padding-top: 20px; margin: 24px 0; }
+  .fee-row { display: flex; justify-content: space-between; padding: 10px 0; border-bottom: 1px solid var(--rule-light); font-size: 0.875rem; color: var(--mid); }
+  .fee-row:last-child { border-bottom: none; }
+  .fee-row span:first-child { font-weight: 500; color: var(--black); }
+  .adv-link { color: var(--black); }
+  .adv-link:hover { text-decoration: underline; }
+  footer { background: var(--bg-off); border-top: 1px solid var(--rule); padding: 40px 80px; text-align: center; }
+  .footer-logo { font-family: 'Cormorant Garamond', serif; font-size: 1.181rem; font-weight: 600; color: #000000; margin-bottom: 12px; letter-spacing: 0.08em; }
+  footer p { font-size: 1.08rem; color: var(--mid); line-height: 1.8; font-weight: 400; }
+  footer a { color: var(--mid); text-decoration: none; }
+  footer a:hover { color: var(--black); }
+  .footer-disclaimer { font-size: 0.975rem; color: var(--light); margin-top: 12px; max-width: 700px; margin-left: auto; margin-right: auto; }
+  .pillars-section { background: var(--bg-off); padding: 64px 80px; border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule); }
+  .pillars-inner { max-width: 1040px; margin: 0 auto; }
+  .pillars-header { display: grid; grid-template-columns: 200px 1fr; gap: 80px; margin-bottom: 48px; align-items: start; }
+  .pillars-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 24px; }
+  .pillar-card { background: #ffffff; padding: 32px 28px; border-top: 2px solid #0f04aa; }
+  .pillar-card h3 { font-family: 'Jost', sans-serif; font-size: 0.82rem; font-weight: 600; color: var(--black); margin-bottom: 14px; line-height: 1.4; text-transform: uppercase; letter-spacing: 0.04em; }
+  .pillar-card p { font-size: 0.875rem; color: var(--mid); line-height: 1.8; font-weight: 400; }
+  .cta-section { background: var(--near-black); padding: 64px 80px; }
+  .cta-inner { max-width: 1040px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; gap: 40px; }
+  .cta-heading { font-family: 'Jost', sans-serif; font-size: 1.6rem; font-weight: 400; color: #ffffff; margin-bottom: 8px; }
+  .cta-sub { font-size: 0.92rem; color: rgba(255,255,255,0.55); font-weight: 400; }
+  .btn-cta { display: inline-block; padding: 14px 32px; border: 1px solid #ffffff; color: #ffffff; text-decoration: none; font-size: 0.72rem; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; white-space: nowrap; transition: background 0.2s, color 0.2s; }
+  .btn-cta:hover { background: #ffffff; color: var(--near-black); }
+  @media (max-width: 900px) {
+    .hero { padding: 40px 32px; }
+    .hero h1 { font-size: 2.4rem; }
+    .page-wrap { padding: 0 32px; }
+    .section-row, .pillars-header, .contact-grid { grid-template-columns: 1fr; gap: 24px; }
+    .pillars-section, .cta-section { padding: 48px 32px; }
+    .pillars-grid { grid-template-columns: 1fr; }
+    footer { padding: 32px; }
+  }
+</style>
+</head>
+<body>
+<nav>
+  <a class="nav-logo" href="index.html">Runde &amp; Co. LLC</a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="About-Us.html">About Us</a></li>
+    <li><a href="Philosophy.html">Philosophy</a></li>
+    <li><a href="CoreStrategies.html">Core Strategy</a></li>
+    <li><a href="Value-Strategies.html">Value Strategy</a></li>
+    <li><a href="International.html">International</a></li>
+    <li><a href="National-Recognition.html" class="active">National Recognition</a></li>
+    <li><a href="Contact-Us.html">Contact Us</a></li>
+    <li><a href="Form-ADV.html">Form ADV</a></li>
+  </ul>
+</nav>
+<div class="hero"><span class="hero-eyebrow">Runde &amp; Co. LLC</span><h1>National<br><strong>Recognition</strong></h1><div class="hero-rule"></div><p class="hero-sub">Recognized nationally for performance, process, and risk-adjusted returns.</p></div>
+
+<div class="page-wrap">
+
+  <div class="section-row">
+    <div class="col-label">Emerging Manager Awards</div>
+    <div>
+      <div class="content-title">Emerging Manager<br><strong>of the Year 2020</strong></div>
+      <div class="recognition-item">
+        <div class="recognition-award">Runde International Small-Cap Value &nbsp;&mdash;&nbsp; Winner</div>
+        <div class="recognition-sub">Emerging Manager Awards 2020</div>
+        <div class="recognition-award">Runde Large-Cap Value &nbsp;&mdash;&nbsp; Nominee</div>
+        <div class="recognition-award" style="margin-top:4px;">Runde Mid-Cap Value &nbsp;&mdash;&nbsp; Nominee</div>
+        <div class="recognition-sub" style="margin-top:4px;">Emerging Manager Awards 2011</div>
+        <div class="recognition-award">Runde Large-Cap Core &nbsp;&mdash;&nbsp; Nominee</div>
+        <div class="recognition-sub" style="margin-top:4px;">Emerging Manager Awards 2007</div>
+        <div class="quote-block">
+          <p class="quote-text">Emerging Manager Monthly, in association with eVestment Alliance, presents the Emerging Manager Awards every year. Nominees in seven categories are ranked based on the following criterion: excess returns, performance versus peers, asset growth, asset percentage growth and standard deviation. The categories are large-cap equity, small-cap equity, small to mid-cap equity, mid-cap equity, all-cap equity, international equity and core fixed-income. Overall, over 500 products are considered. The top three managers in each category are considered by a committee made up of industry experts in the plan sponsor and emerging managers-of-managers communities. The committee evaluates the merits of each firm based on quantitative and qualitative measures. To be eligible for the awards, managers must have less than $2 billion in assets under management. Only separately managed accounts are considered.</p>
+          <div class="quote-attr">&mdash; Emerging Manager Monthly</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-row">
+    <div class="col-label">PSN / Informa</div>
+    <div>
+      <div class="content-title">Top Guns<br><strong>of the Decade 2018</strong></div>
+      <div class="recognition-item">
+        <div class="recognition-award">Runde Small/Mid-Cap Value &nbsp;&mdash;&nbsp; Top Gun of the Decade</div>
+        <div class="quote-block">
+          <p class="quote-text">Utilizing a proprietary blend of our clients&#39; top priority performance screens, PSN Top Guns ranks products in six proprietary star categories in over 50 universes. This is a highly anticipated ranking and is widely used by institutional asset managers and investors.</p>
+          <p class="quote-text">Top Guns of The Decade Criteria: The PSN universes were created using the information collected through the PSN investment manager questionnaire and use only gross of fee returns. PSN Top Guns investment managers must claim that they are GIPS compliant. Mutual fund and commingled fund products are not included in the universe. Products must have an R-Squared of 0.80 or greater relative to the style benchmark for the latest ten year period. Moreover, products must have returns greater than the style benchmark for the latest ten year period and also Standard Deviation less than the style benchmark for the latest ten year period. At this point, the top ten performers for the latest 10 year period become the PSN Top Guns of the Decade.</p>
+          <div class="quote-attr">&mdash; PSN/Informa</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-row">
+    <div class="col-label">Morningstar</div>
+    <div>
+      <div class="content-title">Five &amp; Four-Star<br><strong>Ratings</strong></div>
+      <div class="recognition-item">
+        <div class="recognition-award">Runde International Large-Cap Value</div>
+        <div class="recognition-sub">Four-Star Rating &nbsp;&middot;&nbsp; Three Year Returns</div>
+        <div class="recognition-award">Runde International Small-Cap Value</div>
+        <div class="recognition-sub">Five-Star Rating &nbsp;&middot;&nbsp; Three Year Returns</div>
+        <div class="recognition-award">Runde Small-Cap Value</div>
+        <div class="recognition-sub">Four-Star Rating &nbsp;&middot;&nbsp; Ten Year Returns</div>
+        <div class="quote-block">
+          <p class="quote-text">The Morningstar Rating is a quantitative assessment of a fund&#39;s past performance — both return and risk — as measured from one to five stars. It uses focused comparison groups to better measure fund manager skill.</p>
+          <p class="quote-text">The Morningstar Rating methodology rates funds based on an enhanced Morningstar Risk-Adjusted Return measure. The rating is based on &ldquo;expected utility theory,&rdquo; which recognizes that investors are more concerned about a possible poor outcome than an unexpectedly good outcome and willing to give up some portion of their expected return in exchange for greater certainty of return. The rating accounts for all variations in a fund&#39;s monthly performance, with more emphasis on downward variations. It rewards consistent performance and reduces the possibility of strong short-term performance masking the inherent risk of a fund.</p>
+          <div class="quote-attr">&mdash; Morningstar</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+<footer>
+  <div class="footer-logo">Runde &amp; Co. LLC</div>
+  <p>Seattle, WA &nbsp;|&nbsp; <a href="tel:2063232255">206-323-2255</a> &nbsp;|&nbsp; Investment Management</p>
+  <p style="margin-top:6px;">&copy; 2025 Runde &amp; Co. LLC. All rights reserved.</p>
+  <p class="footer-disclaimer">Runde &amp; Co. LLC is registered with the Securities and Exchange Commission as an investment adviser under Section 203(c) of the Investment Adviser Act of 1940.</p>
+</footer>
+</body>
+</html>
